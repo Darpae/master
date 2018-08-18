@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="root">   
+            <action method="setTemplate"><template>page/1column.phtml</template>     </action>   
+        </reference>
+    </default>
+    <customer_account_edit>
+        <reference name="customer_edit">
+            <action method="setTemplate">
+                <template>dp_customer/form/edit.phtml</template>
+            </action>
+        </reference>
+    </customer_account_edit>
+    <customer_account_create>
+        <reference name="customer_form_register">
+            <action method="setTemplate">
+                <template>dp_customer/register.phtml</template>
+            </action>
+        </reference>
+    </customer_account_create>
+    <dp_customer_index_index>
+        <reference name="content">   
+          <block type="dp_customer/permanantregistration" name="customer_permanantregistration" template="dp_customer/PermanantRegistration.phtml"/>   
+        </reference>
+     </dp_customer_index_index>
+</layout>

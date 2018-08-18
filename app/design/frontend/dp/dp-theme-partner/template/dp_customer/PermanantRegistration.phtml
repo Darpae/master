@@ -1,0 +1,127 @@
+<?php
+    if(!Mage::helper('customer')->isLoggedIn()){
+        Mage::app()->getFrontController()->getResponse()->setRedirect(Mage::getUrl('customer/account/login'));
+    } else {
+        $customer = $this->getCustomer();
+        //echo "<pre>";print_r($customer);echo "</pre>";
+    }
+    //echo "--------->".Mage::getSingleton('customer/session')->getCustomer()->getCustomerActivated();
+    //echo "<pre>";print_r(Mage::getSingleton('customer/session')->getCustomer()->getCustomerActivated());echo "</pre>";
+    //echo "====>".Mage::getSingleton('customer/session')->isLoggedIn();
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Create an Account') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
+    <div class="fieldset">
+        <?php echo $this->getBlockHtml('formkey')?>
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+        <ul class="form-list">
+            <li>
+                <label for="pan"><?php echo $this->__('PAN') ?></label>
+                 <div class="input-box">
+                    <input type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="pan" id="pan" value="<?php echo $this->escapeHtml($this->getCustomer()->getPan()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('PAN')) ?>" class="input-text" />
+                </div>
+            </li>
+            <li>
+                <label for="empId"><?php echo $this->__('Emp Id') ?></label>
+                 <div class="input-box">
+                    <input type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="empId" id="empId" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmpId()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Emp Id')) ?>" class="input-text" />
+                </div>
+            </li>
+            <li>
+                <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+                <div class="input-box">
+                    <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" class="input-text required-entry validate-email" />
+                </div>
+            </li>
+             <li class="fields">
+                <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?>
+            </li>
+            <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+            <?php if ($_dob->isEnabled()): ?>
+                <li><?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?></li>
+            <?php endif ?>
+             <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+            <?php if ($_gender->isEnabled()): ?>
+                <li><?php echo $_gender->setGender($this->getCustomer()->getGender())->toHtml() ?></li>
+            <?php endif ?>
+            <li>
+                <label for="city"><?php echo $this->__('City') ?></label>
+                <div class="input-box">
+                    <input type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getCity()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('City')) ?>" class="input-text" />
+                </div>
+            </li>
+            <li>
+                <label for="phone"><?php echo $this->__('Phone') ?></label>
+                <div class="input-box">
+                    <input type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="phone" id="phone" value="<?php echo $this->escapeHtml($this->getCustomer()->getPhone()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Phone')) ?>" class="input-text" />
+                </div>
+            </li>
+            <li>
+                <label for="secondary_mobile"><?php echo $this->__('Secondary Mobile') ?></label>
+                <div class="input-box">
+                    <input type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="secondary_mobile" id="secondary_mobile" value="<?php echo $this->escapeHtml($this->getCustomer()->getSecondaryMobile()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Secondary Mobile')) ?>" class="input-text" />
+                </div>
+            </li>
+            <li class="fields">
+                <?php $attribute = Mage::getModel('eav/config')->getAttribute('customer','domain'); ?>
+                <label for="domain"><?php echo $this->__('Domain') ?></label>
+                <div class="input-box">
+                     <select id="domain" name="domain" title="<?php echo $this->quoteEscape($this->__('Domain')) ?>" class="<?php if($attribute->getIsRequired() == true){?>required-entry<?php } ?>">
+                        <option value=""><?php echo $this->__('Please select domain') ?></option>
+                        <?php
+                             $options = $attribute->getSource()->getAllOptions();
+                             foreach($options as $option){
+                                if(trim($option['value']) != ""){
+                             ?>
+                                <option value='<?php echo $option['value']?>' <?php if($customer->getDomain() == $option['value']) echo 'selected="selected"' ?>><?php echo $this->__($option['label'])?></option>
+                        <?php } } ?>
+                     </select>
+                </div>
+            </li>
+            <li>
+                <label for="experience"><?php echo $this->__('Experience') ?></label>
+                <div class="input-box">
+                    <input type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="experience" id="experience" value="<?php echo $this->escapeHtml($this->getCustomer()->getExperience()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Experience')) ?>" class="input-text" />
+                </div>
+            </li>
+            <li>
+                <label for="cities"><?php echo $this->__('Cities') ?></label>
+                <div class="input-box">
+                    <input type="text" autocapitalize="off" autocorrect="off" spellcheck="false" name="cities" id="cities" value="<?php echo $this->escapeHtml($this->getCustomer()->getCities()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Cities')) ?>" class="input-text" />
+                </div>
+                <?php $attribute = Mage::getModel('eav/config')->getAttribute('customer','cities_interested'); 
+                    
+                        $options = $attribute->getSource()->getAllOptions(); 
+                        foreach($options as $option){
+                            if(trim($option['value']) != ""){ ?>
+                                <div class="input-box">
+                                    <input type="checkbox" class="checkbox" value="<?php echo trim($option['value']); ?>" id="cities_interested_<?php echo trim($option['value']); ?>" name="cities_interested[]" />
+                                    <span for="cities_interested"><?php echo trim($option['label']); ?></span>
+                                </div>
+                     <?php  }
+                        }
+                    ?>
+                
+            </li>
+            <li>
+                <label for="expertise_skills"><?php echo $this->__('Expertise Skills') ?></label>
+                <div class="input-box">
+                    <select id="expertise_skills" multiple name="expertise_skills" title="<?php echo $this->quoteEscape($this->__('Expertise Skills')) ?>" class="<?php if($attribute->getIsRequired() == true){?>required-entry<?php } ?>">
+                   <?php 
+                        $attribute = Mage::getModel('eav/config')->getAttribute('customer','expertise_skills'); 
+                        $options = $attribute->getSource()->getAllOptions(); 
+                        foreach($options as $option){ 
+                            if(trim($option['value']) != ""){ ?>
+                                <option value='<?php echo $option['value']?>' <?php if($customer->getExpertiseSkills() == $option['value']) echo 'selected="selected"' ?>><?php echo $this->__($option['label'])?></option>
+                  <?php      } 
+                        }
+                   ?>
+                   </select>
+                </div>
+            </li>
+        </ul>
+    </div>
+</form>

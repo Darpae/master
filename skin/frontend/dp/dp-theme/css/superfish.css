@@ -1,4 +1,4 @@
-.nav-container { background:#72d5cd; position: relative;  z-index: 4; top:0; width: 100%; left: 0;}
+.nav-container { background:#fd6604; position: relative;  z-index: 4; top:0; width: 100%; left: 0;}
 .sf-menu { }
 .sf-menu li {
   float: left;
@@ -40,7 +40,7 @@
   z-index: 99;
   width: 192px;
   display: none;
-  background: #72d5cd;
+  background: #fd6604;
 }
 .sf-menu li li {  border-top: 1px solid #68b9b2; }
 .sf-menu li li.parent > a:before { content: "\f101"; float: right; }
@@ -119,7 +119,7 @@ ul.sf-menu li li li.sfHover ul {
   #menu-icon.active:before { content: "\f056"; }
 
   .sf-menu-phone {
-    background: #72d5cd;
+    background: #fd6604;
     border: 1px solid #68b9b2;
     border-top: 0;
     position: absolute;

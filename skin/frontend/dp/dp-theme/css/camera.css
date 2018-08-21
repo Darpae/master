@@ -1083,7 +1083,7 @@
 	margin: 0 10px;
 }
 .camera_wrap .camera_pag .camera_pag_ul li:hover,
-.camera_wrap .camera_pag .camera_pag_ul li.cameracurrent  { color:#72d5cd; }
+.camera_wrap .camera_pag .camera_pag_ul li.cameracurrent  { color:#fd6604; }
 .camera_wrap .camera_pag .camera_pag_ul li:before {content: "\f111";}
 .camera_pag_ul li img {width: 80px; height: 40px;}
 .camera_caption {text-align:  center;}
@@ -1109,7 +1109,7 @@
 	.right_slider_side { padding:13% 0 0 0; text-align:center; }
 	.right_slider_side h2 { font-size:120px; font-weight:600; color:#fff; margin:0 0 -5px 0; }
 	.right_slider_side p { font-size:25px; font-weight:normal; line-height:30px; max-width:1146px; color:#fff; margin:0 auto 41px auto; }
-	.right_slider_side .shop_now { background:#72d5cd; position:relative; display:block; margin:0 auto; width:236px; height:62px; line-height:58px; text-align:center; font-size:29px; font-weight:600; color:#fff; overflow: hidden; }
+	.right_slider_side .shop_now { background:#fd6604; position:relative; display:block; margin:0 auto; width:236px; height:62px; line-height:58px; text-align:center; font-size:29px; font-weight:600; color:#fff; overflow: hidden; }
 	.right_slider_side .shop_now span { position:relative; z-index:2; }
 
 .right_slider_side .shop_now:after {

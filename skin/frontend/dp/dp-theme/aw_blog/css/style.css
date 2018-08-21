@@ -40,10 +40,10 @@
 .postDetails {
     font-size: 15px;
     padding: 0 0 20px;
-    color: #72d5cd;
+    color: #fd6604;
 }
 .postDetails a,
-.postDetails-tags li a {color: #72d5cd;}
+.postDetails-tags li a {color: #fd6604;}
 .postDetails a:hover,
 .postDetails-tags li a:hover {color: #000;}
 .postDetails i {
@@ -63,7 +63,7 @@
     margin-top: 25px;
     position: relative;
     z-index: 2;
-				background:#72d5cd;
+				background:#fd6604;
 }
 .aw-blog-read-more:hover { background:#000; }
 .blog-bg .aw-blog-read-more {}
@@ -103,7 +103,7 @@
    margin-bottom: 15px;
    font-size: 14px;
    text-transform: uppercase;
-   color: #72d5cd;
+   color: #fd6604;
 }
 .commentDetails > span {
 
@@ -272,7 +272,7 @@
 				transition: all 0.3s ease 0s;
 }
 .widget-latest-title a:after {
-    background: none repeat scroll 0 0 #72d5cd;
+    background: none repeat scroll 0 0 #fd6604;
     height: 0;
     left: 50%;
     opacity: 0;
@@ -364,7 +364,7 @@
 
 
 .widget-latest-details {
-    background:#72d5cd;
+    background:#fd6604;
 				position:absolute;
 				left:0;
 				top:0;
